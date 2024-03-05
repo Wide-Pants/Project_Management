@@ -11,29 +11,27 @@
 </head>
 <body>
     <div id="header">
-        <div id="main_logo">메인 로고 입니다.</div>
-        <input type="text" name="search_" id="search_" placeholder="이슈를 검색하세요...">
+        <a id="main_logo" href="/"></a>
+        <input type="text" name="search_" id="search_" placeholder="검색...">
         <div id="login_btn">Log In</div>
     </div>
     <div id="main_content">
         <div id="lnb">
+            <div id="project_over">PROJECT-0</div>
             <ul id="category">
-                <li id="i1"><div class="f_c">PROJECT<div class="arrow_mark">></div></div><ul id="f_ci1">
-                        <li id="ie1">기획서</li>
-                        <li id="ie2">API 설계</li>
-                        <li id="ie3">로그</li>
-                    </ul>
-                </li>
-                <li id="i2"> <div class="f_c">ISSUES <div class="arrow_mark"><</div></div><ul id="f_ci2">
+                <li id="i1" class="main_cat">⌛ 타임라인</li>
+                <li id="i2" class="main_cat"> <div class="f_c"> ⚠️ ISSUES <div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci2">
                     <li id="ie1">해결된 이슈</li>
                     <li id="ie2">내가 등록한 이슈</li>
                     <li id="ie3">나에게 할당된 이슈</li>
                 </ul></li>
-                <li id="i3"> <div class="f_c">Repository<div class="arrow_mark"><</div></div><ul id="f_ci3">
+                <li id="i3" class="main_cat"> <div class="f_c"> 💾 Repository<div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci3">
                     <li id="ie2">깃허브</li>
                     <li id="ie3">로그</li>
                 </ul></li>
-                <li id="i4">Logs</li>
+                <li id="i4" class="main_cat"> 📖 Logs</li>
+                <li id="i5" class="main_cat"> 📁 Demo Apps</li>
+                <li id="i6" class="main_cat"> 📜 Docs </li>
             </ul>
         </div>
         <div id="contents">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/contents_zone.css">
-    <script type="text/javascript" src="/main.js"></script>
+    <link rel="stylesheet" href="/time_line.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,42 +17,102 @@
     </div>
     <div id="main_content">
         <div id="lnb">
-            <div id="project_over">PROJECT-0</div>
+            <div id="project_over"><div id="project_logo"></div>PROJECT-0</div>
             <ul id="category">
-                <li id="i1" class="main_cat">⌛ 타임라인</li>
-                <li id="i2" class="main_cat"> <div class="f_c"> ⚠️ ISSUES <div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci2">
+                <li id="i1" class="main_cat">타임라인</li>
+                <li id="i2" class="main_cat"> <div class="f_c">ISSUES<div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci2">
                     <li id="ie1">해결된 이슈</li>
                     <li id="ie2">내가 등록한 이슈</li>
                     <li id="ie3">나에게 할당된 이슈</li>
                 </ul></li>
-                <li id="i3" class="main_cat"> <div class="f_c"> 💾 Repository<div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci3">
+                <li id="i3" class="main_cat"> <div class="f_c">Repository<div class="arrow_mark"><</div></div><ul class="s_c" id="f_ci3">
                     <li id="ie2">깃허브</li>
                     <li id="ie3">로그</li>
                 </ul></li>
-                <li id="i4" class="main_cat"> 📖 Logs</li>
-                <li id="i5" class="main_cat"> 📁 Demo Apps</li>
-                <li id="i6" class="main_cat"> 📜 Docs </li>
+                <li id="i4" class="main_cat">Logs</li>
+                <li id="i5" class="main_cat">Demo Apps</li>
+                <li id="i6" class="main_cat">Docs </li>
             </ul>
         </div>
         <div id="contents">
-            <div id="background">
-                <div id="project_img"></div>
-                <div id="project_name">PROJECT-0</div>
+            <div id="content_name">타임라인</div>
+            <div id="search_tools">
+                <select name="일정 유형" required="required">
+                    <option value="" selected disabled hidden>일정 유형</option>
+                    <option value="user">개발</option>
+                    <option value="user">QA</option>
+                    <option value="user">기획</option>
+                </select>
+                <select name="이슈 유형" required="required">
+                    <option value="" selected disabled hidden>이슈 유형</option>
+                    <option value="user">릴리즈</option>
+                    <option value="user">버그</option>
+                    <option value="user">요구사항</option>
+                </select>
+                <input type="text" name="search_tool" id="search_tool" placeholder="검색...">
             </div>
-            <div id="content_zone">
-                <div id="categories">
-                    <div class="cat_li" id="cat1">기획서</div>
-                    <div class="cat_li" id="cat2">API</div>
-                    <div class="cat_li" id="cat3">Demo App</div>
-                    <div class="cat_li" id="cat4">ISSUES</div>
-                    <div class="cat_li" id="cat5">Logs</div>
-                    <div class="cat_li" id="cat6">Test</div>
+            <div id="timeline">
+                <div id="list_name"></div>
+                <div id="schedules">
+                    <div class="season"> 2024년 1분기
+                        <div class="months">
+                            <div class="month_o">1월
+                                <div class="dates">
+                                    <div class="date">2</div>
+                                    <div class="date">3</div>
+                                    <div class="date">4</div>
+                                    <div class="date">5</div>
+                                    <div class="date">6</div>
+                                    <div class="date">7</div>
+                                    <div class="date">8</div>
+                                    <div class="date">9</div>
+                                    <div class="date">10</div>
+                                    <div class="date">11</div>
+                                </div>
+                            </div>
+                            <div class="month_e">2월
+                                <div class="dates">
+                                    <div class="date">2</div>
+                                    <div class="date">3</div>
+                                    <div class="date">4</div>
+                                    <div class="date">5</div>
+                                    <div class="date">6</div>
+                                    <div class="date">7</div>
+                                    <div class="date">8</div>
+                                    <div class="date">9</div>
+                                    <div class="date">10</div>
+                                    <div class="date">11</div>
+                                </div>
+                            </div>
+                            <div class="month_o">3월
+                                <div class="dates">
+                                    <div class="date">2</div>
+                                    <div class="date">3</div>
+                                    <div class="date">4</div>
+                                    <div class="date">5</div>
+                                    <div class="date">6</div>
+                                    <div class="date">7</div>
+                                    <div class="date">8</div>
+                                    <div class="date">9</div>
+                                    <div class="date">10</div>
+                                    <div class="date">11</div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
                 </div>
-                <div id="main_content">
-                    하이티비
+            </div>
+            <div id="footer">
+                <div id="magnification">
+                    <div id="today">오늘</div>
+                    <div id="dates">일</div>
+                    <div id="months">월</div>
+                    <div id="seasons">분기</div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
+<script type="text/javascript" src="/time_line.js"></script>
 </html>

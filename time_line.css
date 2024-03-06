@@ -1,0 +1,98 @@
+#timeline{
+    display: flex;
+    flex-grow:0;
+    grid-row: 4;
+    grid-column: 2;
+    height: 60vh;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #DDDDDD;
+}
+select{
+    appearance: #35623b;
+    
+    border: none;
+    background: none;
+    color: #35623b;
+}
+#search_tool{
+    width: 150px;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1.5px 5px;
+    color: #6cbc76;
+}
+#list_name{
+    width: 139px;
+    border-right: 1px solid #DDDDDD;
+}
+#schedules{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-color: #68c576 white;
+    scrollbar-width: thin;
+    font-size: 14px;
+}
+.season{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+}
+.months{
+    display: flex;
+}
+.month_o{
+    display: flex;
+    flex-direction: column;
+    background-color: #e6ffea;
+    margin: 0;
+    padding: 0 2px;
+    text-align: center;
+}
+.month_e{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0 2px;
+    text-align: center;
+}
+.dates{
+    display: flex;
+    text-align: center;
+    margin: 0px;
+}
+.date{
+    width: 20px;
+    padding: 0 2.5px;
+}
+
+#footer{
+    flex-direction: row-reverse;
+    margin-top: 15px;
+    grid-row: 5;
+    grid-column: 2;
+    display: flex;
+    align-items: baseline;
+    justify-items: end;
+}
+#magnification{
+    display: flex;
+}
+#magnification > *{
+    cursor: pointer;
+    text-align: center;
+    align-self: center;
+    width: 80px;
+    padding: 14px 0;
+    background-color: white;
+    border: 0.5px solid #DDDDDD;
+}
+#today{
+    border-right-width: 2px;
+    border-right-color: #35623b;
+}

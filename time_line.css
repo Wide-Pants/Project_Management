@@ -1,16 +1,15 @@
 #timeline{
     display: flex;
-    flex-grow:0;
     grid-row: 4;
     grid-column: 2;
-    height: 60vh;
+    height: 100%;
     background-color: white;
-    border-radius: 15px;
-    border: 1px solid #DDDDDD;
+    border-top-left-radius: 15px;
+    border: 1px solid #35623b;
+    overflow: hidden;
 }
 select{
     appearance: #35623b;
-    
     border: none;
     background: none;
     color: #35623b;
@@ -25,63 +24,147 @@ select{
     color: #6cbc76;
 }
 #list_name{
-    width: 139px;
-    border-right: 1px solid #DDDDDD;
+    min-width: 240px;
+    border-right: 3px solid #35623b;
+}
+#blank_top{
+    height: 60px;
+    background-color: #e6ffea;
+}
+#release_time{
+    display: flex;
+    justify-items: center;
+    font-size: 16px;
+    align-items: center;
+    height: 40px;
+    padding-left: 15px;
+    border-bottom: 2px solid #e6ffea;
+}
+#add_plan_btn{
+    display: flex;
+    justify-items: center;
+    font-size: 16px;
+    align-items: center;
+    height: 40px;
+    padding-left: 15px;
+    border-bottom: 2px solid #e6ffea;
+    cursor: pointer;
+}
+.plan_name{
+    display: flex;
+    justify-items: center;
+    font-size: 16px;
+    align-items: center;
+    height: 40px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.odd_status{
+    background-color: #e6ffea;
+}
+.project_abbreviation{
+    color: #6cbc76;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 5px;
+}
+.plan_bar{
+    display: flex;
+    justify-items: center;
+    height: 40px;
+}
+.plan_name:hover{
+    background-color: #68c576;
+}
+#add_plan_btn:hover{
+    background-color: #68c576;
+}
+#plan_type{
+    display: none;
+    outline: none;
+    width: 200px;
+    height: 26px;
+    font-size: 16px;
+    padding: 0 5px;
+    border-color: #68c576;
+    border-radius: 5px;
+}
+#add_plan_line{
+    height: 40px;
+    border-bottom: 2px solid #e6ffea;
 }
 #schedules{
-    display: flex;
-    width: 100%;
-    overflow-x: scroll;
-    scrollbar-color: #68c576 white;
-    scrollbar-width: thin;
+    display: block;
+    scrollbar-color: #68c576 #FFFFFF;
     font-size: 14px;
+    width: calc(100vw - 270px);
+    overflow-x: scroll;
+    margin: 0;
 }
-.season{
+#test_2{
+    position: relative;
+}
+#test_box{
     display: flex;
     flex-direction: column;
+    position: absolute;
+}
+#date_row{
+    display: flex;
     text-align: center;
-    height: 100%;
+    width: auto;
+    height: 60px;
 }
-.months{
-    display: flex;
-}
-.month_o{
-    display: flex;
-    flex-direction: column;
+#date_row > *{
     background-color: #e6ffea;
-    margin: 0;
-    padding: 0 2px;
-    text-align: center;
-}
-.month_e{
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0 2px;
-    text-align: center;
-}
-.dates{
-    display: flex;
-    text-align: center;
-    margin: 0px;
-}
-.date{
-    width: 20px;
-    padding: 0 2.5px;
 }
 
-#footer{
-    flex-direction: row-reverse;
-    margin-top: 15px;
-    grid-row: 5;
-    grid-column: 2;
+#blank_line{
     display: flex;
-    align-items: baseline;
-    justify-items: end;
+    width: auto;
+    height: 40px;
+    border-bottom: 2px solid #e6ffea;
+}
+#seasons{
+    display: none;
+    text-align: center;
+    align-items: center;
+}
+#seasons *{
+    min-width: 210px;
+}
+#months{
+    display: none;
+    align-items: center;
+}
+.month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 210px;
+}
+#weeks{
+    display: flex;
+    align-items: center;
+}
+.week{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-width: 210px;
+}
+.week *:last-child{
+    display: flex;
+    justify-content: space-around;
 }
 #magnification{
+    position: fixed;
     display: flex;
+    right: 45px;
+    bottom: 30px;
+    border: 2px solid #DDDDDD;
+    border-radius: 5px;
+    overflow: hidden;
 }
 #magnification > *{
     cursor: pointer;
@@ -89,10 +172,16 @@ select{
     align-self: center;
     width: 80px;
     padding: 14px 0;
-    background-color: white;
-    border: 0.5px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
 }
 #today{
-    border-right-width: 2px;
-    border-right-color: #35623b;
+    border-left: 0px solid #DDDDDD;
+    border-right: 2px solid #35623b;
+}
+#week_view_btn{
+    border-left: 0px solid #DDDDDD;
+}
+
+.selected{
+    background-color: #e6ffea;
 }

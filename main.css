@@ -2,9 +2,8 @@
     padding: 0;
     margin: 0;
 }
-body{
-    
-    background-color: #e6ffea;
+::selection{
+    color: #68c576;
 }
 
 #header{
@@ -45,7 +44,7 @@ body{
 #main_content{
     display: flex;
     flex: 1;
-    height: calc(100vh - 100px);
+    height: 100%
 }
 #lnb{
     display: inline-block;
@@ -74,7 +73,6 @@ body{
     font-size: 16px;
     list-style: none;
     width: 210px;
-    
 }
 #category *{
     cursor: pointer;
@@ -99,4 +97,8 @@ body{
 }
 .s_c *{
     margin-bottom: 7.5px;
+}
+#content_name{
+    font-size: 26px;
+    font-weight: 600;
 }

@@ -35,6 +35,12 @@
             </ul>
         </div>
         <div id="contents">
+            <div id="magnification">
+                <div id="today">오늘</div>
+                <div class="selected" id="week_view_btn">일</div>
+                <div id="month_view_btn">월</div>
+                <div id="season_view_btn">분기</div>
+            </div>
             <div id="content_name">타임라인</div>
             <div id="search_tools">
                 <select name="일정 유형" required="required">
@@ -52,12 +58,46 @@
                 <input type="text" name="search_tool" id="search_tool" placeholder="검색...">
             </div>
             <div id="timeline">
-                <div id="list_name"></div>
+                <div id="list_name">
+                    <div id="blank_top"></div>
+                    <div id="release_time">릴리스</div>
+                    <div id="add_plan_btn">+ 새 계획 추가하기 <input id="plan_type" type="text"> </div>
+                </div>
                 <div id="schedules">
-                    <div class="season"> 2024년 1분기
-                        <div class="months">
-                            <div class="month_o">1월
-                                <div class="dates">
+                    <div id="test_2"><div id="test_box">
+                        <div id="date_row">
+                        <div id="seasons"> 
+                            <div>2024년 1분기</div>
+                            <div>2024년 2분기</div>
+                            <div>2024년 3분기</div>
+                            <div>2024년 4분기</div>
+                            <div>2025년 1분기</div>
+                            <div>2025년 2분기</div>
+                            <div>2024년 1분기</div>
+                            <div>2024년 2분기</div>
+                            <div>2024년 3분기</div>
+                            <div>2024년 4분기</div>
+                            <div>2025년 1분기</div>
+                            <div>2025년 2분기</div>
+                            <div>2024년 1분기</div>
+                            <div>2024년 2분기</div>
+                            <div>2024년 3분기</div>
+                            <div>2024년 4분기</div>
+                            <div>2025년 1분기</div>
+                            <div>2025년 2분기</div>
+                        </div>
+                        <div id="months">
+                            <div class="month">1월</div>
+                            <div class="month">2월</div>
+                            <div class="month">3월</div>
+                            <div class="month">4월</div>
+                            <div class="month">5월</div>
+                            <div class="month">6월</div> 
+                        </div>
+                        <div id="weeks">
+                            <div class="week">
+                                <div>2월</div>
+                                <div>
                                     <div class="date">2</div>
                                     <div class="date">3</div>
                                     <div class="date">4</div>
@@ -65,49 +105,41 @@
                                     <div class="date">6</div>
                                     <div class="date">7</div>
                                     <div class="date">8</div>
-                                    <div class="date">9</div>
-                                    <div class="date">10</div>
-                                    <div class="date">11</div>
                                 </div>
                             </div>
-                            <div class="month_e">2월
-                                <div class="dates">
-                                    <div class="date">2</div>
-                                    <div class="date">3</div>
-                                    <div class="date">4</div>
-                                    <div class="date">5</div>
-                                    <div class="date">6</div>
-                                    <div class="date">7</div>
-                                    <div class="date">8</div>
+                            <div class="week">
+                                <div>2월</div>
+                                <div>
                                     <div class="date">9</div>
                                     <div class="date">10</div>
                                     <div class="date">11</div>
+                                    <div class="date">12</div>
+                                    <div class="date">13</div>
+                                    <div class="date">14</div>
+                                    <div class="date">15</div>
                                 </div>
                             </div>
-                            <div class="month_o">3월
-                                <div class="dates">
-                                    <div class="date">2</div>
-                                    <div class="date">3</div>
-                                    <div class="date">4</div>
-                                    <div class="date">5</div>
-                                    <div class="date">6</div>
-                                    <div class="date">7</div>
-                                    <div class="date">8</div>
-                                    <div class="date">9</div>
-                                    <div class="date">10</div>
-                                    <div class="date">11</div>
+                            <div class="week">
+                                <div>2월</div>
+                                <div>
+                                    <div class="date">16</div>
+                                    <div class="date">17</div>
+                                    <div class="date">18</div>
+                                    <div class="date">19</div>
+                                    <div class="date">20</div>
+                                    <div class="date">21</div>
+                                    <div class="date">22</div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="footer">
-                <div id="magnification">
-                    <div id="today">오늘</div>
-                    <div id="dates">일</div>
-                    <div id="months">월</div>
-                    <div id="seasons">분기</div>
+                    <div id="blank_line"></div>
+                    
+                    <div id="add_plan_line">
+                    </div>                
+                    </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

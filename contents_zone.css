@@ -1,10 +1,8 @@
 #contents{
     display: grid;
-    width: calc(100% - 250px);
-    overflow-y: scroll;
-    grid-template-columns: auto 75vw auto;
-    grid-template-rows: 70px 30px 80px 60vh auto;
-    overflow-y: scroll;
+    grid-template-columns: 20px calc(100vw - 270px);
+    grid-template-rows: 60px 30px 80px auto;
+    overflow-y: hidden;
 }
 
 #content_name{

@@ -73,11 +73,12 @@ select{
     justify-items: center;
     height: 40px;
 }
-.plan_name:hover{
-    background-color: #68c576;
+.hover_status{
+    background-color: #d2ffd9;
 }
+
 #add_plan_btn:hover{
-    background-color: #68c576;
+    background-color: #d2ffd9;
 }
 #plan_type{
     display: none;
@@ -153,9 +154,21 @@ select{
     text-align: center;
     min-width: 210px;
 }
-.week *:last-child{
+.week >*:last-child{
     display: flex;
     justify-content: space-around;
+    padding-top: 5px;
+}
+
+.date{
+    width: 19px;
+    height: 19px;
+}
+
+.weekend{
+    border-radius: 5px;
+    background-color: #d2ffd9;
+    color: #35623b;
 }
 #magnification{
     position: fixed;

@@ -2,11 +2,10 @@
     display: flex;
     grid-row: 4;
     grid-column: 2;
-    height: 100%;
     background-color: white;
     border-top-left-radius: 15px;
-    border: 1px solid #35623b;
-    overflow: hidden;
+    border-left: 1px solid #35623b;
+    border-top: 1px solid #35623b;
 }
 select{
     appearance: #35623b;
@@ -39,6 +38,7 @@ select{
     height: 40px;
     padding-left: 15px;
     border-bottom: 2px solid #e6ffea;
+    position: sticky;
 }
 #add_plan_btn{
     display: flex;
@@ -100,10 +100,13 @@ select{
     font-size: 14px;
     width: calc(100vw - 270px);
     overflow-x: scroll;
+    overflow-y: visible;
     margin: 0;
+    background-color: none;
 }
 #test_2{
     position: relative;
+    overflow-y: visible;
 }
 #test_box{
     display: flex;
@@ -178,6 +181,8 @@ select{
     border: 2px solid #DDDDDD;
     border-radius: 5px;
     overflow: hidden;
+    z-index: 2;
+    background-color: #ffffff;
 }
 #magnification > *{
     cursor: pointer;
@@ -197,4 +202,19 @@ select{
 
 .selected{
     background-color: #e6ffea;
+}
+
+#division{
+    display: flex;
+    z-index: -1;
+    height: 100%;
+    position: absolute;
+}
+.line{
+    position: relative;
+    padding: 0;
+    margin-left: 209.5px;
+    height: 100%;
+    width: 0.5px;
+    background-color: #35623b;
 }

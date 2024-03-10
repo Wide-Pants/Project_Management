@@ -9,9 +9,13 @@ const weeks = document.getElementById(`weeks`);
 const months = document.getElementById(`months`);
 const seasons = document.getElementById(`seasons`);
 
+const plan_names = document.getElementById(`plan_names`)
+const plan_line = document.getElementById(`plan_line`);
 const add_plan_line = document.getElementById(`add_plan_line`)
 const add_new_plan_btn = document.getElementById(`add_plan_btn`)
 const input_new_plan = document.getElementById(`plan_type`)
+
+const division_line_container = document.getElementById(`division`)
 
 var mag_status = `week`
 const selected_color = `#d2ffd9`;
@@ -91,8 +95,8 @@ function add_plan(plan_name){
         new_plan_bar.classList.add(`odd_status`);
         new_plan.classList.add(`odd_status`);
     }
-    add_new_plan_btn.before(new_plan);
-    add_plan_line.before(new_plan_bar);
+    plan_names.appendChild(new_plan);
+    plan_line.appendChild(new_plan_bar);
     new_plan.addEventListener(`mouseover`, ()=>{
         new_plan.classList.add(`hover_status`)
         new_plan_bar.classList.add(`hover_status`)
@@ -118,13 +122,15 @@ function load_date_info(){
     
     const start_date = new Date();
     start_date.setFullYear(today.getFullYear()-1)
-    start_date.setDate(1);
+    start_date.setMonth(0);
+    start_date.setDate(0);
     start_date.setDate(start_date.getDate()-start_date.getDay()+1)
 
     const end_date = new Date();
-    end_date.setFullYear(today.getFullYear()+1)
-    end_date.setDate(1);
-    end_date.setDate(end_date.getDate()-5+end_date.getDay())
+    end_date.setFullYear(today.getFullYear()+2)
+    end_date.setMonth(0);
+    end_date.setDate(0);
+    end_date.setDate(end_date.getDate()+end_date.getDay())
 
     console.log(start_date, end_date)
 
@@ -163,7 +169,6 @@ function load_date_info(){
             const date = document.createElement(`div`);
             date.innerText = start_date.getDate();
             date.classList.add(`date`);
-            console.log(start_date.getDate())
             start_date.setDate(start_date.getDate()+1);
             if(i>4)
                 date.classList.add(`weekend`);
@@ -175,7 +180,17 @@ function load_date_info(){
         new_element.appendChild(month_container);
         new_element.appendChild(dates_container);
         weeks.append(new_element);
-    }
+        console.log(division_line_container.classList.contains(`done`))
+        if(!division_line_container.classList.contains(`done`))
+            add_div_line()
+    }division_line_container.classList.add(`done`)
 }
 
+
+function add_div_line(){
+    console.log(`do_draw_line`)
+    const new_div_line = document.createElement(`div`);
+    new_div_line.classList.add(`line`)
+    division_line_container.appendChild(new_div_line)
+}
 load_date_info()

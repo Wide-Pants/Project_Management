@@ -1,8 +1,8 @@
 #contents{
     display: grid;
     grid-template-columns: 20px calc(100vw - 270px);
-    grid-template-rows: 60px 30px 80px auto;
-    overflow-y: hidden;
+    grid-template-rows: 50px 30px 80px calc(100vh - 240px);
+    overflow-x: hidden;
 }
 
 #content_name{

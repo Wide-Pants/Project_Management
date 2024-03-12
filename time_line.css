@@ -166,8 +166,24 @@ select{
 }
 
 .date{
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#today_line{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    pointer-events: none;
+}
+#today_line > *{
+    position: relative;
+    width: 2px;
+    background-color: aqua;
+    height:  calc(100% - 120px);
+    top: 120px;
 }
 
 .weekend{
@@ -206,17 +222,27 @@ select{
     background-color: #e6ffea;
 }
 
+#today_date{
+    border-radius: 5px;
+    background-color: #6cbc76;
+    color: #35623b;
+}
+
 #division{
     display: flex;
-    z-index: -1;
     height: 100%;
+    width: 100%;
     position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
 }
 .line{
+    flex: 0 0 209px;
     position: relative;
     padding: 0;
-    margin-left: 209.5px;
     height: 100%;
-    width: 0.5px;
-    background-color: #35623b;
+    width: 100%;
+    border-left: 0.25px solid #68c576;
+    border-right: 0.25px solid #68c576;
 }

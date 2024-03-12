@@ -15,9 +15,11 @@ const add_plan_line = document.getElementById(`add_plan_line`)
 const add_new_plan_btn = document.getElementById(`add_plan_btn`)
 const input_new_plan = document.getElementById(`plan_type`)
 
+const today_line = document.getElementById(`today_line`);
 const division_line_container = document.getElementById(`division`)
 
-
+var thisweek_position;
+var today_position;
 var mag_status = `week`
 const selected_color = `#d2ffd9`;
 
@@ -34,6 +36,7 @@ week_view_btn.addEventListener(`click`,()=>{
         month_view_btn.style.backgroundColor=`none`;
         season_view_btn.style.backgroundColor=`none`;
         mag_status=`week`;
+        today_line.style.left = today_position +`px`;
     }
 });
 
@@ -46,6 +49,8 @@ month_view_btn.addEventListener(`click`,()=>{
         week_view_btn.style.backgroundColor=`none`;
         season_view_btn.style.backgroundColor=`none`;
         mag_status=`months`;
+        today_line.style.left = thisweek_position/4 + `px`
+        console.log(thisweek_position/4 + `px`)
     }
 });
 
@@ -58,6 +63,8 @@ season_view_btn.addEventListener(`click`,()=>{
         month_view_btn.style.backgroundColor=`none`;
         week_view_btn.style.backgroundColor=`none`;
         mag_status=`seasons`;
+        today_line.style.left = thisweek_position/12 + `px`
+        console.log(thisweek_position/12 + `px`)
     }
 });
 
@@ -73,8 +80,6 @@ input_new_plan.addEventListener(`keydown`,(e)=>{
         input_new_plan.blur();
         input_new_plan.value = ``;
         add_plan(plan_ID_value);
-        add_new_plan_btn.classList.toggle(`odd_status`)
-        add_plan_line.classList.toggle(`odd_status`)
     }
 })
 
@@ -120,11 +125,16 @@ function add_plan(plan_name){
     scheduler.style.height = plan_names.parentElement.scrollHeight + `px`;
     scheduler.parentElement.scrollTop = plan_names.parentElement.scrollHeight;
     console.log(scheduler.offsetHeight, plan_names.parentElement.scrollHeight)
+
+    add_new_plan_btn.classList.toggle(`odd_status`)
+    add_plan_line.classList.toggle(`odd_status`)
 }
 
-
+scheduler.addEventListener(`scroll`, ()=>{
+    console.log(scheduler.scrollLeft)
+})
 function load_date_info(){
-    const today = new Date();
+    const today = new Date(`2024-03-18`);
     
     const start_date = new Date();
     start_date.setFullYear(today.getFullYear()-1)
@@ -179,19 +189,34 @@ function load_date_info(){
             if(i>4)
                 date.classList.add(`weekend`);
             dates_container.appendChild(date);
+            if(today.getFullYear()==start_date.getFullYear() &&today.getMonth()==start_date.getMonth()&&today.getDate()==start_date.getDate()-1){
+                thisweek_position = weeks.lastChild.offsetLeft + date.offsetLeft + 210;
+                const today_bar = document.getElementById(`today_line`)
+                today_bar.firstChild.offsetLeft = thisweek_position;
+                today_btn.addEventListener(`click`, ()=>{
+                    scheduler.scrollLeft = thisweek_position;
+                })
+                today_position = thisweek_position + (today.getDay() != 0 ? (today.getDay()-1)*30 : 180)+15;
+                today_line.style.left = today_position + `px`
+                console.log(today.getDay())
+                date.setAttribute(`id`, `today_date`)
+            }
         }
 
         month_container.innerText = innerText = start_date.getFullYear().toString().substring(2) == today.getFullYear().toString().substring(2)? (start_date.getMonth()+1) + `월`: start_date.getFullYear().toString().substring(2)+`' ` + (start_date.getMonth()+1) + `월`
-        console.log(start_date.getMonth()+1);
         new_element.appendChild(month_container);
         new_element.appendChild(dates_container);
         weeks.append(new_element);
-        console.log(division_line_container.classList.contains(`done`))
         if(!division_line_container.classList.contains(`done`))
             add_div_line()
     }division_line_container.classList.add(`done`)
+    scheduler.scrollLeft = thisweek_position;
 }
 
+for (let i = 0; i < 32; i++) {
+    add_plan('test')
+
+}
 
 function add_div_line(){
     console.log(`do_draw_line`)

@@ -1,4 +1,4 @@
-const scheduler = document.getElementById(`schedule`)
+const scheduler = document.getElementById(`schedules`)
 
 const today_btn = document.getElementById(`today`)
 const week_view_btn = document.getElementById(`week_view_btn`)
@@ -16,6 +16,7 @@ const add_new_plan_btn = document.getElementById(`add_plan_btn`)
 const input_new_plan = document.getElementById(`plan_type`)
 
 const division_line_container = document.getElementById(`division`)
+
 
 var mag_status = `week`
 const selected_color = `#d2ffd9`;
@@ -114,6 +115,11 @@ function add_plan(plan_name){
         new_plan.classList.remove(`hover_status`)
         new_plan_bar.classList.remove(`hover_status`)
     })
+
+    plan_names.parentElement.style.height = plan_names.parentElement.scrollHeight + `px`;
+    scheduler.style.height = plan_names.parentElement.scrollHeight + `px`;
+    scheduler.parentElement.scrollTop = plan_names.parentElement.scrollHeight;
+    console.log(scheduler.offsetHeight, plan_names.parentElement.scrollHeight)
 }
 
 

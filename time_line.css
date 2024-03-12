@@ -6,6 +6,7 @@
     border-top-left-radius: 15px;
     border-left: 1px solid #35623b;
     border-top: 1px solid #35623b;
+    overflow-y: auto;
 }
 select{
     appearance: #35623b;
@@ -29,6 +30,7 @@ select{
 #blank_top{
     height: 60px;
     background-color: #e6ffea;
+    position: fixed;
 }
 #release_time{
     display: flex;
@@ -37,8 +39,8 @@ select{
     align-items: center;
     height: 40px;
     padding-left: 15px;
+    padding-top: 60px;
     border-bottom: 2px solid #e6ffea;
-    position: sticky;
 }
 #add_plan_btn{
     display: flex;
@@ -96,28 +98,28 @@ select{
 }
 #schedules{
     display: block;
+    position: relative;
     scrollbar-color: #68c576 #FFFFFF;
     font-size: 14px;
     width: calc(100vw - 270px);
-    overflow-x: scroll;
-    overflow-y: visible;
     margin: 0;
     background-color: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 #test_2{
-    position: relative;
-    overflow-y: visible;
+    position: absolute;
 }
 #test_box{
     display: flex;
     flex-direction: column;
-    position: absolute;
 }
 #date_row{
     display: flex;
     text-align: center;
     width: auto;
     height: 60px;
+    position: sticky;
 }
 #date_row > *{
     background-color: #e6ffea;

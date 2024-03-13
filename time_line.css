@@ -7,6 +7,7 @@
     border-left: 1px solid #35623b;
     border-top: 1px solid #35623b;
     overflow-y: auto;
+    scrollbar-color: #68c576 #FFFFFF;
 }
 select{
     appearance: #35623b;
@@ -30,7 +31,6 @@ select{
 #blank_top{
     height: 60px;
     background-color: #e6ffea;
-    position: fixed;
 }
 #release_time{
     display: flex;
@@ -39,7 +39,6 @@ select{
     align-items: center;
     height: 40px;
     padding-left: 15px;
-    padding-top: 60px;
     border-bottom: 2px solid #e6ffea;
 }
 #add_plan_btn{
@@ -64,6 +63,18 @@ select{
 .odd_status{
     background-color: #e6ffea;
 }
+.plan_box{
+    display: block;
+    position: absolute;
+    border-radius: 7.5px;
+    margin-top: 5px;
+    height: 30px;
+    background-color: aqua;
+    pointer-events: none;
+}
+.plan_unfixed{
+    opacity: 0.4;
+}
 .project_abbreviation{
     color: #6cbc76;
     font-size: 14px;
@@ -74,6 +85,7 @@ select{
     display: flex;
     justify-items: center;
     height: 40px;
+    cursor: pointer;
 }
 .hover_status{
     background-color: #d2ffd9;
@@ -99,6 +111,7 @@ select{
 #schedules{
     display: block;
     position: relative;
+    scroll-snap-stop:normal;
     scrollbar-color: #68c576 #FFFFFF;
     font-size: 14px;
     width: calc(100vw - 270px);
@@ -238,11 +251,10 @@ select{
     overflow: hidden;
 }
 .line{
-    flex: 0 0 209px;
+    flex: 0 0 210px;
     position: relative;
     padding: 0;
     height: 100%;
     width: 100%;
-    border-left: 0.25px solid #68c576;
-    border-right: 0.25px solid #68c576;
+    box-shadow: 0.25px -0.25px 0 0.3px #35623b inset;
 }

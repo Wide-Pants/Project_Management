@@ -50,7 +50,7 @@ month_view_btn.addEventListener(`click`,()=>{
         season_view_btn.style.backgroundColor=`none`;
         mag_status=`months`;
         today_line.style.left = thisweek_position/4 + `px`
-        console.log(thisweek_position/4 + `px`)
+
     }
 });
 
@@ -64,7 +64,6 @@ season_view_btn.addEventListener(`click`,()=>{
         week_view_btn.style.backgroundColor=`none`;
         mag_status=`seasons`;
         today_line.style.left = thisweek_position/12 + `px`
-        console.log(thisweek_position/12 + `px`)
     }
 });
 
@@ -107,25 +106,66 @@ function add_plan(plan_name){
         new_plan.classList.add(`hover_status`)
         new_plan_bar.classList.add(`hover_status`)
     })
-    new_plan_bar.addEventListener(`mouseover`, ()=>{
+
+    new_plan_bar.addEventListener(`mouseover`, (e)=>{
         new_plan.classList.add(`hover_status`)
         new_plan_bar.classList.add(`hover_status`)
+        const this_bar = e.target.closest(`.plan_bar`)
+        if(new_plan_bar.childNodes.length <= 0){
+            const plan_box = document.createElement(`div`)
+            plan_box.classList.add(`plan_box`, `plan_unfixed`)
+            plan_box.style.width = `200px`
+            plan_box.style.left = (parseInt(e.offsetX/210)*210 + 30*parseInt(((e.offsetX%210)/30))+5) +'px';
+            new_plan_bar.appendChild(plan_box)
+        }
+        if(new_plan_bar.childNodes.length > 0){
+            const plan_box = this_bar.firstChild;
+            console.log(plan_box.classList)
+            
+            this_bar.addEventListener(`mousemove`,(move_e)=>{
+                if(plan_box.classList.contains(`plan_unfixed`)){
+                    const x_offset = move_e.offsetX;
+                    const left_offset = parseInt(x_offset/210)*210 + 30*parseInt(((x_offset%210)/30))+5
+                    if(plan_box.offsetLeft != left_offset)
+                        plan_box.style.left = left_offset +'px';
+                }
+            })
+            this_bar.addEventListener(`click`,(click_e)=>{
+                if(plan_box.classList.contains(`plan_unfixed`)){
+                    plan_box.classList.remove(`plan_unfixed`)
+                    console.log(`click!`, plan_box.classList)
+                    this_bar.addEventListener(`mousemove`,(move_e)=>{
+                    })
+                }
+            })
+        }
     })
     
     new_plan.addEventListener(`mouseout`, ()=>{
         new_plan.classList.remove(`hover_status`)
         new_plan_bar.classList.remove(`hover_status`)
     })
-    new_plan_bar.addEventListener(`mouseout`, ()=>{
+    new_plan_bar.addEventListener(`mouseout`, (e)=>{
         new_plan.classList.remove(`hover_status`)
         new_plan_bar.classList.remove(`hover_status`)
+        const this_bar = e.target.closest(`.plan_bar`)
+        if(this_bar.childNodes.length > 0){
+            const plan_box = this_bar.firstChild;
+            console.log(plan_box.classList)
+            if(plan_box.classList.contains('plan_box') && plan_box.classList.contains('plan_unfixed'))
+                this_bar.removeChild(plan_box);            
+        }
+        const plan_box = this_bar.firstChild;    
+        this_bar.addEventListener(`mousemove`,(move_e)=>{
+        })
+        this_bar.addEventListener(`click`,(click_e)=>{
+        })
     })
 
     plan_names.parentElement.style.height = plan_names.parentElement.scrollHeight + `px`;
     scheduler.style.height = plan_names.parentElement.scrollHeight + `px`;
     scheduler.parentElement.scrollTop = plan_names.parentElement.scrollHeight;
-    console.log(scheduler.offsetHeight, plan_names.parentElement.scrollHeight)
-
+    
     add_new_plan_btn.classList.toggle(`odd_status`)
     add_plan_line.classList.toggle(`odd_status`)
 }
@@ -134,21 +174,13 @@ scheduler.addEventListener(`scroll`, ()=>{
     console.log(scheduler.scrollLeft)
 })
 function load_date_info(){
-    const today = new Date(`2024-03-18`);
+    const today = new Date();
     
-    const start_date = new Date();
-    start_date.setFullYear(today.getFullYear()-1)
-    start_date.setMonth(0);
-    start_date.setDate(0);
+    const start_date = new Date((today.getFullYear()-1)+`-01-01`);
     start_date.setDate(start_date.getDate()-start_date.getDay()+1)
 
-    const end_date = new Date();
-    end_date.setFullYear(today.getFullYear()+2)
-    end_date.setMonth(0);
-    end_date.setDate(0);
+    const end_date = new Date((today.getFullYear()+2)+`-01-01`);
     end_date.setDate(end_date.getDate()+end_date.getDay())
-
-    console.log(start_date, end_date)
 
     const s_start = new Date(`${today.getFullYear()-1}-01-01`)
     
@@ -197,8 +229,7 @@ function load_date_info(){
                     scheduler.scrollLeft = thisweek_position;
                 })
                 today_position = thisweek_position + (today.getDay() != 0 ? (today.getDay()-1)*30 : 180)+15;
-                today_line.style.left = today_position + `px`
-                console.log(today.getDay())
+                today_line.style.left = today_position + `px`;
                 date.setAttribute(`id`, `today_date`)
             }
         }
@@ -219,7 +250,6 @@ for (let i = 0; i < 32; i++) {
 }
 
 function add_div_line(){
-    console.log(`do_draw_line`)
     const new_div_line = document.createElement(`div`);
     new_div_line.classList.add(`line`)
     division_line_container.appendChild(new_div_line)

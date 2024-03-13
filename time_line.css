@@ -69,8 +69,16 @@ select{
     border-radius: 7.5px;
     margin-top: 5px;
     height: 30px;
-    background-color: aqua;
     pointer-events: none;
+}
+.type_dev{
+    background-color: #35623b;
+}
+.type_prototype{
+    background-color: #2ca7ff;
+}
+.type_qa{
+    background-color: #ffdc3f;
 }
 .plan_unfixed{
     opacity: 0.4;
@@ -86,6 +94,7 @@ select{
     justify-items: center;
     height: 40px;
     cursor: pointer;
+    overflow: hidden;
 }
 .hover_status{
     background-color: #d2ffd9;
@@ -194,7 +203,7 @@ select{
 #today_line > *{
     position: relative;
     width: 2px;
-    background-color: aqua;
+    background-color: #35623b;
     height:  calc(100% - 120px);
     top: 120px;
 }

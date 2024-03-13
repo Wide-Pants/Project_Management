@@ -88,14 +88,18 @@ input_new_plan.addEventListener(`focusout`,()=>{
 })
 
 
-function add_plan(plan_name){
+function add_plan(plan_name, plan_type = 'dev'){
     const new_plan = document.createElement(`div`);
     const new_plan_bar = document.createElement(`div`);
+
+
+    const type_icons = [`👾`,`🧑‍💻`,`🎮`]
+    new_plan_bar.setAttribute(`types`,plan_type)
     new_plan.setAttribute(`id`,'_'+plan_name+`_`);
     new_plan_bar.setAttribute(`id`,'_'+plan_name);
     new_plan.classList.add(`plan_name`);
     new_plan_bar.classList.add(`plan_bar`);
-    new_plan.innerHTML = `🅰️<span class="project_abbreviation">${project_abbreviation}-${cnt}</span>${plan_name}`
+    new_plan.innerHTML = `${type_icons[types.indexOf(plan_type)]}<span class="project_abbreviation">${project_abbreviation}-${cnt}</span>${plan_name}`
     if(add_new_plan_btn.classList.contains(`odd_status`)){
         new_plan_bar.classList.add(`odd_status`);
         new_plan.classList.add(`odd_status`);
@@ -113,7 +117,7 @@ function add_plan(plan_name){
         const this_bar = e.target.closest(`.plan_bar`)
         if(new_plan_bar.childNodes.length <= 0){
             const plan_box = document.createElement(`div`)
-            plan_box.classList.add(`plan_box`, `plan_unfixed`)
+            plan_box.classList.add(`plan_box`, `plan_unfixed`, 'type_'+plan_type)
             plan_box.style.width = `200px`
             plan_box.style.left = (parseInt(e.offsetX/210)*210 + 30*parseInt(((e.offsetX%210)/30))+5) +'px';
             new_plan_bar.appendChild(plan_box)
@@ -244,9 +248,16 @@ function load_date_info(){
     scheduler.scrollLeft = thisweek_position;
 }
 
-for (let i = 0; i < 32; i++) {
-    add_plan('test')
 
+function getRandom(min, max)
+{
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const types = ['dev', 'prototype', `qa`]
+for (let i = 0; i < 20; i++) {
+    const new_int = getRandom(1,17)
+    add_plan('test_'+types[new_int%3], types[new_int%3])
 }
 
 function add_div_line(){
